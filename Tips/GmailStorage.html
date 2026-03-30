@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gmail Storage Cleanup Guide</title>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+        background: linear-gradient(135deg, #e8f0fe, #ffffff);
+        color: #202124;
+    }
+
+    .container {
+        max-width: 1100px;
+        margin: 40px auto;
+        padding: 20px;
+    }
+
+    .card {
+        background: white;
+        border-radius: 16px;
+        padding: 30px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        margin-bottom: 25px;
+        transition: 0.3s;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+    }
+
+    h1 {
+        font-size: 36px;
+        margin-bottom: 10px;
+        color: #1a73e8;
+    }
+
+    h2 {
+        margin-bottom: 10px;
+        color: #1a73e8;
+    }
+
+    p {
+        margin-bottom: 10px;
+        line-height: 1.6;
+    }
+
+    .highlight {
+        background: #e8f0fe;
+        padding: 10px;
+        border-radius: 8px;
+        font-weight: bold;
+        margin: 10px 0;
+    }
+
+    .step {
+        margin-top: 20px;
+    }
+
+    .search-box {
+        background: #f1f3f4;
+        padding: 10px;
+        border-radius: 8px;
+        font-family: monospace;
+        margin: 8px 0;
+        display: inline-block;
+    }
+
+    .header {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .header p {
+        color: #5f6368;
+    }
+
+    .footer {
+        text-align: center;
+        margin-top: 30px;
+        color: #5f6368;
+        font-size: 14px;
+    }
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>📩 Stop Paying for Gmail Storage</h1>
+        <p>Clean your Gmail, Drive & Photos in under 10 minutes ⚡</p>
+    </div>
+
+    <div class="card">
+        <h2>💡 Reality Check</h2>
+        <p>Most people think Gmail storage is filled with emails — but that's rarely true.</p>
+        <p>Google counts on you not checking what's actually taking space.</p>
+        <div class="highlight">
+            After proper cleanup, you can free up GBs instantly 🚀
+        </div>
+    </div>
+
+    <div class="card step">
+        <h2>1. Find the Real Space Hogs</h2>
+        <p>Go to: https://one.google.com/storage</p>
+        <p>Check storage usage in Gmail, Drive & Photos.</p>
+
+        <div class="search-box">has:attachment larger:10M</div>
+        <p>Try also:</p>
+        <div class="search-box">larger:5M</div>
+        <div class="search-box">larger:3M</div>
+    </div>
+
+    <div class="card step">
+        <h2>2. Delete Categories in Bulk</h2>
+        <div class="search-box">category:promotions</div>
+        <div class="search-box">category:social</div>
+        <div class="search-box">category:updates</div>
+        <p>Select all → Delete everything.</p>
+    </div>
+
+    <div class="card step">
+        <h2>3. Remove Spam Senders</h2>
+        <div class="search-box">from:noreply@company.com</div>
+        <div class="search-box">from:notifications@</div>
+        <p>Delete all & unsubscribe from useless emails.</p>
+    </div>
+
+    <div class="card step">
+        <h2>4. Clean by Age</h2>
+        <div class="search-box">older_than:3y</div>
+        <div class="search-box">older_than:2y larger:5M</div>
+        <p>Delete outdated emails safely.</p>
+    </div>
+
+    <div class="card step">
+        <h2>5. Empty Trash & Spam</h2>
+        <p>Go to Trash → Click "Empty Trash now"</p>
+        <p>Go to Spam → Click "Delete all spam messages"</p>
+    </div>
+
+    <div class="card step">
+        <h2>6. Clean Sent Folder</h2>
+        <div class="search-box">has:attachment larger:5M</div>
+        <p>Delete old files & attachments you already used.</p>
+    </div>
+
+    <div class="card step">
+        <h2>7. Check Drive & Photos</h2>
+        <p>Sort files by size in Google Drive.</p>
+        <p>Delete old backups, videos, screenshots & duplicates.</p>
+    </div>
+
+    <div class="card step">
+        <h2>8. Prevent Future Clutter</h2>
+        <p>Create filters to auto-delete unwanted emails.</p>
+        <p>Unsubscribe from newsletters you never read.</p>
+
+        <div class="highlight">
+            Maintenance > Cleanup ✅
+        </div>
+    </div>
+
+    <div class="footer">
+        🚀 Designed by CodeWithTanim
+    </div>
+
+</div>
+
+</body>
+</html>
