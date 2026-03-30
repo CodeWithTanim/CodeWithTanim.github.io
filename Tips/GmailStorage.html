@@ -3,93 +3,123 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gmail Storage Cleanup Guide</title>
+<title>Gmail Cleanup Pro</title>
 
 <style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: 'Segoe UI', sans-serif;
-    }
+:root {
+    --bg: #f5f7fb;
+    --card: #ffffff;
+    --text: #202124;
+    --primary: #1a73e8;
+}
 
-    body {
-        background: linear-gradient(135deg, #e8f0fe, #ffffff);
-        color: #202124;
-    }
+body.dark {
+    --bg: #0f172a;
+    --card: #1e293b;
+    --text: #e2e8f0;
+}
 
-    .container {
-        max-width: 1100px;
-        margin: 40px auto;
-        padding: 20px;
-    }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
 
-    .card {
-        background: white;
-        border-radius: 16px;
-        padding: 30px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-        margin-bottom: 25px;
-        transition: 0.3s;
-    }
+body {
+    background: var(--bg);
+    color: var(--text);
+    transition: 0.3s;
+}
 
-    .card:hover {
-        transform: translateY(-5px);
-    }
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 20px;
+}
 
-    h1 {
-        font-size: 36px;
-        margin-bottom: 10px;
-        color: #1a73e8;
-    }
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
 
-    h2 {
-        margin-bottom: 10px;
-        color: #1a73e8;
-    }
+h1 {
+    color: var(--primary);
+}
 
-    p {
-        margin-bottom: 10px;
-        line-height: 1.6;
-    }
+.toggle {
+    cursor: pointer;
+    padding: 8px 14px;
+    border-radius: 8px;
+    background: var(--primary);
+    color: white;
+    border: none;
+}
 
-    .highlight {
-        background: #e8f0fe;
-        padding: 10px;
-        border-radius: 8px;
-        font-weight: bold;
-        margin: 10px 0;
-    }
+.search {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    margin-bottom: 20px;
+    outline: none;
+}
 
-    .step {
-        margin-top: 20px;
-    }
+.card {
+    background: var(--card);
+    padding: 20px;
+    border-radius: 14px;
+    margin-bottom: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
 
-    .search-box {
-        background: #f1f3f4;
-        padding: 10px;
-        border-radius: 8px;
-        font-family: monospace;
-        margin: 8px 0;
-        display: inline-block;
-    }
+.card:hover {
+    transform: translateY(-5px);
+}
 
-    .header {
-        text-align: center;
-        margin-bottom: 30px;
-    }
+.search-box {
+    background: rgba(26,115,232,0.1);
+    padding: 10px;
+    border-radius: 8px;
+    font-family: monospace;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 8px 0;
+}
 
-    .header p {
-        color: #5f6368;
-    }
+.copy-btn {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+}
 
-    .footer {
-        text-align: center;
-        margin-top: 30px;
-        color: #5f6368;
-        font-size: 14px;
-    }
+.progress {
+    height: 6px;
+    background: #ddd;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
 
+.progress-bar {
+    height: 100%;
+    width: 0%;
+    background: var(--primary);
+    transition: 0.4s;
+}
+
+.footer {
+    text-align: center;
+    margin-top: 20px;
+    opacity: 0.7;
+}
 </style>
 </head>
 
@@ -98,85 +128,98 @@
 <div class="container">
 
     <div class="header">
-        <h1>📩 Stop Paying for Gmail Storage</h1>
-        <p>Clean your Gmail, Drive & Photos in under 10 minutes ⚡</p>
+        <h1>📩 Gmail Cleanup Pro</h1>
+        <button class="toggle" onclick="toggleMode()">🌙 Mode</button>
     </div>
 
+    <div class="progress">
+        <div class="progress-bar" id="progress"></div>
+    </div>
+
+    <input type="text" class="search" placeholder="Search steps..." onkeyup="filterSteps(this.value)">
+
     <div class="card">
-        <h2>💡 Reality Check</h2>
-        <p>Most people think Gmail storage is filled with emails — but that's rarely true.</p>
-        <p>Google counts on you not checking what's actually taking space.</p>
-        <div class="highlight">
-            After proper cleanup, you can free up GBs instantly 🚀
+        <h2>1. Find Space Hogs</h2>
+        <div class="search-box">
+            has:attachment larger:10M
+            <button class="copy-btn" onclick="copyText(this)">Copy</button>
+        </div>
+        <div class="search-box">
+            larger:5M
+            <button class="copy-btn" onclick="copyText(this)">Copy</button>
         </div>
     </div>
 
-    <div class="card step">
-        <h2>1. Find the Real Space Hogs</h2>
-        <p>Go to: https://one.google.com/storage</p>
-        <p>Check storage usage in Gmail, Drive & Photos.</p>
-
-        <div class="search-box">has:attachment larger:10M</div>
-        <p>Try also:</p>
-        <div class="search-box">larger:5M</div>
-        <div class="search-box">larger:3M</div>
+    <div class="card">
+        <h2>2. Delete Categories</h2>
+        <div class="search-box">
+            category:promotions
+            <button class="copy-btn" onclick="copyText(this)">Copy</button>
+        </div>
+        <div class="search-box">
+            category:social
+            <button class="copy-btn" onclick="copyText(this)">Copy</button>
+        </div>
     </div>
 
-    <div class="card step">
-        <h2>2. Delete Categories in Bulk</h2>
-        <div class="search-box">category:promotions</div>
-        <div class="search-box">category:social</div>
-        <div class="search-box">category:updates</div>
-        <p>Select all → Delete everything.</p>
-    </div>
-
-    <div class="card step">
+    <div class="card">
         <h2>3. Remove Spam Senders</h2>
-        <div class="search-box">from:noreply@company.com</div>
-        <div class="search-box">from:notifications@</div>
-        <p>Delete all & unsubscribe from useless emails.</p>
+        <div class="search-box">
+            from:noreply@
+            <button class="copy-btn" onclick="copyText(this)">Copy</button>
+        </div>
     </div>
 
-    <div class="card step">
+    <div class="card">
         <h2>4. Clean by Age</h2>
-        <div class="search-box">older_than:3y</div>
-        <div class="search-box">older_than:2y larger:5M</div>
-        <p>Delete outdated emails safely.</p>
+        <div class="search-box">
+            older_than:3y
+            <button class="copy-btn" onclick="copyText(this)">Copy</button>
+        </div>
     </div>
 
-    <div class="card step">
-        <h2>5. Empty Trash & Spam</h2>
-        <p>Go to Trash → Click "Empty Trash now"</p>
-        <p>Go to Spam → Click "Delete all spam messages"</p>
-    </div>
-
-    <div class="card step">
-        <h2>6. Clean Sent Folder</h2>
-        <div class="search-box">has:attachment larger:5M</div>
-        <p>Delete old files & attachments you already used.</p>
-    </div>
-
-    <div class="card step">
-        <h2>7. Check Drive & Photos</h2>
-        <p>Sort files by size in Google Drive.</p>
-        <p>Delete old backups, videos, screenshots & duplicates.</p>
-    </div>
-
-    <div class="card step">
-        <h2>8. Prevent Future Clutter</h2>
-        <p>Create filters to auto-delete unwanted emails.</p>
-        <p>Unsubscribe from newsletters you never read.</p>
-
-        <div class="highlight">
-            Maintenance > Cleanup ✅
+    <div class="card">
+        <h2>5. Clean Sent Folder</h2>
+        <div class="search-box">
+            has:attachment larger:5M
+            <button class="copy-btn" onclick="copyText(this)">Copy</button>
         </div>
     </div>
 
     <div class="footer">
-        🚀 Designed by CodeWithTanim
+        🚀 CodeWithTanim | SaaS Style UI
     </div>
 
 </div>
+
+<script>
+function toggleMode() {
+    document.body.classList.toggle("dark");
+}
+
+function copyText(btn) {
+    const text = btn.parentElement.innerText.replace("Copy", "").trim();
+    navigator.clipboard.writeText(text);
+    btn.innerText = "Copied!";
+    setTimeout(() => btn.innerText = "Copy", 1000);
+}
+
+function filterSteps(query) {
+    const cards = document.querySelectorAll(".card");
+    query = query.toLowerCase();
+    cards.forEach(card => {
+        card.style.display = card.innerText.toLowerCase().includes(query) ? "block" : "none";
+    });
+}
+
+let progress = 0;
+setInterval(() => {
+    if (progress < 100) {
+        progress += 10;
+        document.getElementById("progress").style.width = progress + "%";
+    }
+}, 500);
+</script>
 
 </body>
 </html>
