@@ -1,225 +1,228 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gmail Cleanup Pro</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gmail Cleanup Pro</title>
+    <link rel="icon" type="image/png" href="Images/Tips/gmail.png">
 
-<style>
-:root {
-    --bg: #f5f7fb;
-    --card: #ffffff;
-    --text: #202124;
-    --primary: #1a73e8;
-}
+    <style>
+        :root {
+            --bg: #f5f7fb;
+            --card: #ffffff;
+            --text: #202124;
+            --primary: #1a73e8;
+        }
 
-body.dark {
-    --bg: #0f172a;
-    --card: #1e293b;
-    --text: #e2e8f0;
-}
+        body.dark {
+            --bg: #0f172a;
+            --card: #1e293b;
+            --text: #e2e8f0;
+        }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', sans-serif;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
 
-body {
-    background: var(--bg);
-    color: var(--text);
-    transition: 0.3s;
-}
+        body {
+            background: var(--bg);
+            color: var(--text);
+            transition: 0.3s;
+        }
 
-.container {
-    max-width: 1100px;
-    margin: auto;
-    padding: 20px;
-}
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 20px;
+        }
 
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-}
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
 
-h1 {
-    color: var(--primary);
-}
+        h1 {
+            color: var(--primary);
+        }
 
-.toggle {
-    cursor: pointer;
-    padding: 8px 14px;
-    border-radius: 8px;
-    background: var(--primary);
-    color: white;
-    border: none;
-}
+        .toggle {
+            cursor: pointer;
+            padding: 8px 14px;
+            border-radius: 8px;
+            background: var(--primary);
+            color: white;
+            border: none;
+        }
 
-.search {
-    width: 100%;
-    padding: 12px;
-    border-radius: 10px;
-    border: none;
-    margin-bottom: 20px;
-    outline: none;
-}
+        .search {
+            width: 100%;
+            padding: 12px;
+            border-radius: 10px;
+            border: none;
+            margin-bottom: 20px;
+            outline: none;
+        }
 
-.card {
-    background: var(--card);
-    padding: 20px;
-    border-radius: 14px;
-    margin-bottom: 15px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-    transition: 0.3s;
-}
+        .card {
+            background: var(--card);
+            padding: 20px;
+            border-radius: 14px;
+            margin-bottom: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            transition: 0.3s;
+        }
 
-.card:hover {
-    transform: translateY(-5px);
-}
+        .card:hover {
+            transform: translateY(-5px);
+        }
 
-.search-box {
-    background: rgba(26,115,232,0.1);
-    padding: 10px;
-    border-radius: 8px;
-    font-family: monospace;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 8px 0;
-}
+        .search-box {
+            background: rgba(26, 115, 232, 0.1);
+            padding: 10px;
+            border-radius: 8px;
+            font-family: monospace;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 8px 0;
+        }
 
-.copy-btn {
-    background: var(--primary);
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 6px;
-    cursor: pointer;
-}
+        .copy-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
 
-.progress {
-    height: 6px;
-    background: #ddd;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    overflow: hidden;
-}
+        .progress {
+            height: 6px;
+            background: #ddd;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
 
-.progress-bar {
-    height: 100%;
-    width: 0%;
-    background: var(--primary);
-    transition: 0.4s;
-}
+        .progress-bar {
+            height: 100%;
+            width: 0%;
+            background: var(--primary);
+            transition: 0.4s;
+        }
 
-.footer {
-    text-align: center;
-    margin-top: 20px;
-    opacity: 0.7;
-}
-</style>
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            opacity: 0.7;
+        }
+    </style>
 </head>
 
 <body>
 
-<div class="container">
+    <div class="container">
 
-    <div class="header">
-        <h1>📩 Gmail Cleanup Pro</h1>
-        <button class="toggle" onclick="toggleMode()">🌙 Mode</button>
-    </div>
-
-    <div class="progress">
-        <div class="progress-bar" id="progress"></div>
-    </div>
-
-    <input type="text" class="search" placeholder="Search steps..." onkeyup="filterSteps(this.value)">
-
-    <div class="card">
-        <h2>1. Find Space Hogs</h2>
-        <div class="search-box">
-            has:attachment larger:10M
-            <button class="copy-btn" onclick="copyText(this)">Copy</button>
+        <div class="header">
+            <h1>📩 Gmail Cleanup Pro</h1>
+            <button class="toggle" onclick="toggleMode()">🌙 Mode</button>
         </div>
-        <div class="search-box">
-            larger:5M
-            <button class="copy-btn" onclick="copyText(this)">Copy</button>
+
+        <div class="progress">
+            <div class="progress-bar" id="progress"></div>
         </div>
+
+        <input type="text" class="search" placeholder="Search steps..." onkeyup="filterSteps(this.value)">
+
+        <div class="card">
+            <h2>1. Find Space Hogs</h2>
+            <div class="search-box">
+                has:attachment larger:10M
+                <button class="copy-btn" onclick="copyText(this)">Copy</button>
+            </div>
+            <div class="search-box">
+                larger:5M
+                <button class="copy-btn" onclick="copyText(this)">Copy</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>2. Delete Categories</h2>
+            <div class="search-box">
+                category:promotions
+                <button class="copy-btn" onclick="copyText(this)">Copy</button>
+            </div>
+            <div class="search-box">
+                category:social
+                <button class="copy-btn" onclick="copyText(this)">Copy</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>3. Remove Spam Senders</h2>
+            <div class="search-box">
+                from:noreply@
+                <button class="copy-btn" onclick="copyText(this)">Copy</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>4. Clean by Age</h2>
+            <div class="search-box">
+                older_than:3y
+                <button class="copy-btn" onclick="copyText(this)">Copy</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>5. Clean Sent Folder</h2>
+            <div class="search-box">
+                has:attachment larger:5M
+                <button class="copy-btn" onclick="copyText(this)">Copy</button>
+            </div>
+        </div>
+
+        <div class="footer">
+            🚀 CodeWithTanim | SaaS Style UI
+        </div>
+
     </div>
 
-    <div class="card">
-        <h2>2. Delete Categories</h2>
-        <div class="search-box">
-            category:promotions
-            <button class="copy-btn" onclick="copyText(this)">Copy</button>
-        </div>
-        <div class="search-box">
-            category:social
-            <button class="copy-btn" onclick="copyText(this)">Copy</button>
-        </div>
-    </div>
+    <script>
+        function toggleMode() {
+            document.body.classList.toggle("dark");
+        }
 
-    <div class="card">
-        <h2>3. Remove Spam Senders</h2>
-        <div class="search-box">
-            from:noreply@
-            <button class="copy-btn" onclick="copyText(this)">Copy</button>
-        </div>
-    </div>
+        function copyText(btn) {
+            const text = btn.parentElement.innerText.replace("Copy", "").trim();
+            navigator.clipboard.writeText(text);
+            btn.innerText = "Copied!";
+            setTimeout(() => btn.innerText = "Copy", 1000);
+        }
 
-    <div class="card">
-        <h2>4. Clean by Age</h2>
-        <div class="search-box">
-            older_than:3y
-            <button class="copy-btn" onclick="copyText(this)">Copy</button>
-        </div>
-    </div>
+        function filterSteps(query) {
+            const cards = document.querySelectorAll(".card");
+            query = query.toLowerCase();
+            cards.forEach(card => {
+                card.style.display = card.innerText.toLowerCase().includes(query) ? "block" : "none";
+            });
+        }
 
-    <div class="card">
-        <h2>5. Clean Sent Folder</h2>
-        <div class="search-box">
-            has:attachment larger:5M
-            <button class="copy-btn" onclick="copyText(this)">Copy</button>
-        </div>
-    </div>
-
-    <div class="footer">
-        🚀 CodeWithTanim | SaaS Style UI
-    </div>
-
-</div>
-
-<script>
-function toggleMode() {
-    document.body.classList.toggle("dark");
-}
-
-function copyText(btn) {
-    const text = btn.parentElement.innerText.replace("Copy", "").trim();
-    navigator.clipboard.writeText(text);
-    btn.innerText = "Copied!";
-    setTimeout(() => btn.innerText = "Copy", 1000);
-}
-
-function filterSteps(query) {
-    const cards = document.querySelectorAll(".card");
-    query = query.toLowerCase();
-    cards.forEach(card => {
-        card.style.display = card.innerText.toLowerCase().includes(query) ? "block" : "none";
-    });
-}
-
-let progress = 0;
-setInterval(() => {
-    if (progress < 100) {
-        progress += 10;
-        document.getElementById("progress").style.width = progress + "%";
-    }
-}, 500);
-</script>
+        let progress = 0;
+        setInterval(() => {
+            if (progress < 100) {
+                progress += 10;
+                document.getElementById("progress").style.width = progress + "%";
+            }
+        }, 500);
+    </script>
 
 </body>
+
 </html>
