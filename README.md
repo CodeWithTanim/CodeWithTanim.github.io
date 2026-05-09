@@ -163,8 +163,18 @@ sh-2.0$ /bin/bash -i
     </tr>
     <tr>
         <td><a href="https://github.com/CodeWithTanim/EduTrack">EduTrack</a></td>
-        <td>EduTrack - Modern Homework Management).</td>
-        <td>18 Apr, 2026</td>
+        <td>EduTrack - Modern Homework Management.</td>
+        <td>Apr 18, 2026</td>
+    </tr>
+    <tr>
+        <td><a href="https://github.com/CodeWithTanim/RED-EYE-LEAD-HUNTER">RED-EYE-LEAD-HUNTER</a></td>
+        <td>A high-performance, dark-themed Chrome Extension for automated lead extraction from Google Maps.</td>
+        <td>Apr 28, 2026</td>
+    </tr>
+    <tr>
+        <td><a href="https://github.com/CodeWithTanim/GHOST-HAND">GHOST HAND</a></td>
+        <td>A professional, modular, and secure Windows automation system controlled entirely via Telegram.</td>
+        <td>May 9, 2026</td>
     </tr>
     <tr>
         <td><a href="https://codewithtanim.is-a.dev/ComingSoon.html">COMING SOON</a></td>
@@ -259,7 +269,7 @@ class Languages:
 
 <!-- GitHub Trophy -->
 ### `~# ./Trophy`
-<p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=CodeWithTanim" alt="CodeWithTanim" /></a> </p>
+<p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://trophy.benkou.dev/?username=CodeWithTanim&theme=darkhub" alt="CodeWithTanim" /></a> </p>
 <hr />
 
 <!-- GitHub Stats -->
