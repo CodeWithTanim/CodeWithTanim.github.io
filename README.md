@@ -1,4 +1,4 @@
-[![MasterHead](https://github.com/CodeWithTanim/README-MANAGER/blob/main/GitHub.gif)](http://www.msrtanim.xyz)
+[![MasterHead](https://github.com/CodeWithTanim/README-MANAGER/blob/main/GitHub.gif)](https://codewithtanim.is-a.dev/)
 
 <h2>Howdy , it's <i>MD SAMIUR RAHMAN TANIM 👋</i></h2>
 A Passionate <b>Developer</b> from <i><b>BANGLADESH</b></i> 
@@ -175,6 +175,16 @@ sh-2.0$ /bin/bash -i
         <td><a href="https://github.com/CodeWithTanim/GHOST-HAND">GHOST HAND</a></td>
         <td>A professional, modular, and secure Windows automation system controlled entirely via Telegram.</td>
         <td>May 9, 2026</td>
+    </tr>
+    <tr>
+        <td><a href="https://github.com/CodeWithTanim/WhatsApp-Parallel">WhatsApp-Parallel</a></td>
+        <td>Run and manage multiple WhatsApp accounts in one lightweight desktop application. Built with Electron + Vite + Tailwind CSS for a seamless, modern messaging experience.</td>
+        <td>May 14, 2026</td>
+    </tr>
+    <tr>
+        <td><a href="https://github.com/CodeWithTanim/Telegram-Parallel">Telegram-Parallel</a></td>
+        <td>Run and manage multiple Telegram accounts in one lightweight desktop application. Built with Electron + Vite + Tailwind CSS for a seamless, modern messaging experience.</td>
+        <td>May 29, 2026</td>
     </tr>
     <tr>
         <td><a href="https://codewithtanim.is-a.dev/ComingSoon.html">COMING SOON</a></td>
